@@ -1,0 +1,36 @@
+@model System.Collections.Generic.List<FSharpCore.Models.Language>
+@{
+    ViewData["Title"] = "Home";
+}
+<form method="POST" action="/Home/Index">
+    <table class="table">
+        <thead>
+            <th>
+                Language Description
+            </th>
+            <th>
+                Language Code
+            </th>
+            <th>
+                Translation
+            </th>
+        </thead>
+        <tbody>
+    @for (int i = 0; i < Model.Count; i++){
+        <tr>
+            <td>
+                <input asp-for="@Model[i].LanguageDescription" disabled />
+            </td>
+            <td>
+                <input asp-for="@Model[i].LanguageCode" disabled />
+            </td>
+            <td>
+                <input asp-for="@Model[i].Translation" />
+            </td>
+        </tr>
+    }
+        </tbody>
+            
+    </table>
+    <button type="submit">Accept Translations</button>
+</form>
